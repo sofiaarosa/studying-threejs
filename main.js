@@ -51,7 +51,7 @@ Array(500).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load('textures/space.jpg');
 scene.background = spaceTexture;
 
-//avatar
+//earth and moon
 
 const moonTexture = new THREE.TextureLoader().load('textures/moon.jpg');
 const normalTexture = new THREE.TextureLoader().load('textures/normal.jpg');
@@ -75,18 +75,30 @@ earth.position.y-=5;
 
 scene.add(moon,earth);
 
+var count = 0;
 function animate(){
   requestAnimationFrame(animate);
   
   moon.rotation.y+=0.005;
   earth.rotation.y+=0.01;
 
-  // moon.position.x+=0.01;
-  // moon.position.z+=0.02;
+  //moon revolution - x
+  if(moon.position.x.valueOf()<20 && count<=400){moon.position.x+=0.05; count++;}
+  else {moon.position.x-=0.05; count++}
+  if(count>=800) count=0;
+
+  //moon revolution - z
+  if(count<=200)moon.position.z-=0.08;
+  if(count>200 && count <=400)moon.position.z+=0.08;
+  if(count>400 && count <=600)moon.position.z+=0.08;
+  if(count > 600)moon.position.z-=0.08;
+
+  console.log(count);
 
   controls.update();
 
   renderer.render(scene,camera);
-}
+}  
 
 animate();
+
