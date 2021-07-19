@@ -16,24 +16,13 @@ camera.position.setZ(30);
 
 renderer.render(scene, camera);
 
-const geometry = new THREE.TorusGeometry(10,3,16,100);
-const material = new THREE.MeshStandardMaterial({color:0xFF6347});
-const torus = new THREE.Mesh(geometry,material);
-
-//scene.add(torus);
-
 const pointLight = new THREE.PointLight(0xFFFFFF);
 const ambientLight = new THREE.AmbientLight(0xFFFFFF);
 
 pointLight.position.set(20,20,20);
 scene.add(pointLight,ambientLight);
 
-const lightHelp = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200,50);
-
-//scene.add(lightHelp,gridHelper);
-
-const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar(){
   const geometry= new THREE.SphereGeometry(0.25,24,24);
@@ -58,7 +47,7 @@ const normalTexture = new THREE.TextureLoader().load('textures/normal.jpg');
 const earthTexture = new THREE.TextureLoader().load('textures/earth.jpg');
 
 const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3,32,32),
+  new THREE.SphereGeometry(0.75,32,32),
   new THREE.MeshStandardMaterial({
     map:moonTexture, 
     normalMap:normalTexture
@@ -66,36 +55,55 @@ const moon = new THREE.Mesh(
 );
 
 const earth = new THREE.Mesh(
-  new THREE.SphereGeometry(5,50,50),
+  new THREE.SphereGeometry(3,30,30),
   new THREE.MeshBasicMaterial({map:earthTexture})
 )
 
-earth.position.x+=10;
-earth.position.y-=5;
+scene.add(moon);
+moon.position.setZ(2);
+moon.position.setY(2);
 
-scene.add(moon,earth);
+scene.add(earth);
+earth.position.setZ(3);
+earth.position.setX(3);
+earth.position.setY(-1);
 
 var count = 0;
+
+//scroll event
+
+function moveCamera(){
+  console.log("scroll");
+
+  //get how far the user is from the top of the page
+  const t = document.body.getBoundingClientRect().top;
+  console.log(t);
+
+  camera.position.z=t * -0.01;
+  camera.position.x = t * -0.0002;
+  camera.rotation.y = t* -0.0002;
+}
+
+document.body.onscroll = moveCamera;
+moveCamera();
+
 function animate(){
   requestAnimationFrame(animate);
   
+  //moon and earth rotation
   moon.rotation.y+=0.005;
   earth.rotation.y+=0.01;
 
-  //moon revolution - x
+  /*moon revolution - x
   if(moon.position.x.valueOf()<20 && count<=400){moon.position.x+=0.05; count++;}
   else {moon.position.x-=0.05; count++}
   if(count>=800) count=0;
 
   //moon revolution - z
-  if(count<=200)moon.position.z-=0.08;
-  if(count>200 && count <=400)moon.position.z+=0.08;
-  if(count>400 && count <=600)moon.position.z+=0.08;
-  if(count > 600)moon.position.z-=0.08;
+  if(count<=200 || count>600)moon.position.z-=0.08;
+  if(count>200 && count <=600)moon.position.z+=0.08;*/
 
-  console.log(count);
-
-  controls.update();
+  // controls.update();
 
   renderer.render(scene,camera);
 }  
