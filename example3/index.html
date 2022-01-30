@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../resources/favicon.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <title>3D Lightning</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Three JS - Point Light Dynamic</h1>
+        <div id="canvas-container">
+            <canvas id="bg"></canvas>
+        </div>
+        <form id="lights-form">
+            <div class="col">
+                <h1>Light - R</h1>
+                <div class="item">
+                    <label for="intensityR">Intensity</label>
+                    <input type="range" min="0" max="10" step="0.5" value="1" name="intensityR">
+                </div>
+                <div class="item">
+                    <label for="positionXR">Position (x)</label>
+                    <input type="range" min="-2" max="2" step="0.1" value="-1" name="positionXR">
+                </div>
+                <div class="item">
+                    <label for="positionYR">Position (y)</label>
+                    <input type="range" min="-2" max="2" step="0.1" value="0" name="positionYR">
+                </div>
+            </div>
+            <div class="col">
+                <h1>Light - B</h1>
+                <div class="item">
+                    <label for="intensityB">Intensity</label>
+                    <input type="range" min="0" max="10" step="1" value="1" name="intensityB">
+                </div>
+                <div class="item">
+                    <label for="positionXB">Position (x)</label>
+                    <input type="range" min="-2" max="2" step="0.1" value="0" name="positionXB" id="">
+                </div>
+                <div class="item">
+                    <label for="positionYB">Position (y)</label>
+                    <input type="range" min="-2" max="2" step="0.1" value="-1" name="positionYB" id="">
+                </div>
+            </div>
+            <div class="col">
+                <h1>Light - G</h1>
+                <div class="item">
+                    <label for="intensityG">Intensity</label>
+                    <input type="range" min="0" max="10" step="1" value="1" name="intensityG">
+                </div>
+                <div class="item">
+                    <label for="positionXG">Position (x)</label>
+                    <input type="range" min="-2" max="2" step="0.1" value="1" name="positionXG" id="">
+                </div>
+                <div class="item">
+                    <label for="positionYG">Position (y)</label>
+                    <input type="range" min="-2" max="2" step="0.1" value="0" name="positionYG" id="">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script type="module" src="./example3.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

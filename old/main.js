@@ -40,6 +40,45 @@ Array(500).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load('textures/space.jpg');
 scene.background = spaceTexture;
 
+//sun
+const sunTexture = new THREE.TextureLoader().load('textures/sun.jpg');
+const sun = new THREE.Mesh(
+  new THREE.SphereGeometry(7,32,32),
+  new THREE.MeshStandardMaterial({
+    map:sunTexture
+  })
+);
+
+scene.add(sun);
+sun.position.setZ(2);
+sun.position.setX(2.5);
+
+//mercury
+const mercuryTexture = new THREE.TextureLoader().load('textures/mercury.jpg');
+const mercury = new THREE.Mesh(
+  new THREE.SphereGeometry(2,32,32),
+  new THREE.MeshStandardMaterial({
+    map:mercuryTexture
+  })
+);
+
+scene.add(mercury);
+mercury.position.setZ(15);
+mercury.position.setX(0);
+
+//venus
+const venusTexture = new THREE.TextureLoader().load('textures/venus.jpg');
+const venus = new THREE.Mesh(
+  new THREE.SphereGeometry(2.5,32,32),
+  new THREE.MeshStandardMaterial({
+    map:venusTexture
+  })
+);
+
+scene.add(venus);
+venus.position.setZ(25);
+venus.position.setX(-0.3);
+
 //earth and moon
 
 const moonTexture = new THREE.TextureLoader().load('textures/moon.jpg');
@@ -60,13 +99,53 @@ const earth = new THREE.Mesh(
 )
 
 scene.add(moon);
-moon.position.setZ(2);
-moon.position.setY(2);
+moon.position.setZ(35);
+moon.position.setX(-5);
+moon.position.setY(5);
 
 scene.add(earth);
-earth.position.setZ(3);
-earth.position.setX(3);
-earth.position.setY(-1);
+earth.position.setZ(35);
+earth.position.setX(-2);
+earth.position.setY(0);
+
+//mars
+const marsTexture = new THREE.TextureLoader().load('textures/mars.jpg');
+const mars = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map:marsTexture
+  })
+);
+
+scene.add(mars);
+mars.position.setZ(46);
+mars.position.setX(-5)
+
+//jupiter
+const jupiterTexture = new THREE.TextureLoader().load('textures/jupiter.jpg');
+const jupiter = new THREE.Mesh(
+  new THREE.SphereGeometry(4,32,32),
+  new THREE.MeshStandardMaterial({
+    map:jupiterTexture
+  })
+);
+
+scene.add(jupiter);
+jupiter.position.setZ(56);
+jupiter.position.setX(-3)
+
+//saturn
+const saturnTexture = new THREE.TextureLoader().load('textures/saturn.jpg');
+const saturn = new THREE.Mesh(
+  new THREE.SphereGeometry(3.5,32,32),
+  new THREE.MeshStandardMaterial({
+    map:saturnTexture
+  })
+);
+
+scene.add(saturn);
+saturn.position.setZ(75);
+saturn.position.setX(-5);
 
 var count = 0;
 
@@ -93,15 +172,6 @@ function animate(){
   //moon and earth rotation
   moon.rotation.y+=0.005;
   earth.rotation.y+=0.01;
-
-  /*moon revolution - x
-  if(moon.position.x.valueOf()<20 && count<=400){moon.position.x+=0.05; count++;}
-  else {moon.position.x-=0.05; count++}
-  if(count>=800) count=0;
-
-  //moon revolution - z
-  if(count<=200 || count>600)moon.position.z-=0.08;
-  if(count>200 && count <=600)moon.position.z+=0.08;*/
 
   // controls.update();
 

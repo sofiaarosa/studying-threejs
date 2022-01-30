@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+
+:root{
+  --dark-bg:rgba(21, 33, 55,1);
+  --medium-bg: rgba(42, 71, 144,1);
+  --yellow:rgba(255, 189, 79,1);
+}
+
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+}
+
+main{
+  width: 100vw;
+  color: white;
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  padding: 120px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  display: grid;
+  grid-template-columns: repeat(15,1fr);
+}
+
+header{
+  grid-column: 4/span 9;
+  background-color: var(--dark-bg);
+  
+  text-align: center;
+  padding: 2rem;
+  margin-top:100px;
+  margin-bottom:800px;
+}
+
+header h1{
+  font-family: 'Otomanopee One',sans-serif;
+}
+
+section{
+  grid-column:2/8;
+  padding: 2rem;
+  background-color: var(--medium-bg);
+}
+
+h2{
+  font-family: 'Otomanopee One',sans-serif;
+  text-align: center;
+}
+
+#sun, #mercury{
+  background-color: var(--medium-bg);
+  margin-bottom:450px;
+}
+
+#venus, #mars,#earth, #jupiter{
+  background-color: var(--medium-bg);
+  margin-bottom:600px;
+}
+
+
+

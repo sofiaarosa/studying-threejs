@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --carolina-blue: #279af1;
+    --ghost-white: #f7f7ff;
+    --orange-yellow: #FFAE03;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--carolina-blue);
+    font-family: 'Roboto', sans-serif;
+}
+
+.aux{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 10% 40% 40% 10%;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: 
+        "navbar navbar navbar navbar" 
+        ". title cube .";
+    min-height: 90vh;
+    width: 100vw;
+}
+
+main nav{
+    grid-area: navbar;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--orange-yellow);
+}
+
+main nav a{
+    color: var(--carolina-blue);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    transition: 0.3s;
+}
+
+main nav a:hover{
+    color: #193576;
+}
+
+main .title{
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    color:var(--ghost-white);
+    background-color: var(--carolina-blue);
+}
+
+main .title h1{
+    font-size: 3.5rem;
+}
+
+main .title p{
+    width: 100%;
+    text-align: justify;
+}
+
+main .title .links{
+    width: 80%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+main .title .links a{
+    color: white;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+main .title .links a:nth-child(1){
+    background-color: #d5672c;
+}
+
+main .title .links a:nth-child(2){
+    background-color: #193576;
+}
+
+main .title .links a:nth-child(3){
+    background-color: #3b8f54;
+}
+
+main .title .links a:nth-child(4){
+    background-color: #d62424;
+}
+
+main canvas{
+    grid-area: cube;
+}
+

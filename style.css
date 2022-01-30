@@ -1,56 +1,107 @@
-@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lato&display=swap');
 
-:root{
-  --dark-bg:rgba(21, 33, 55,1);
-  --medium-bg: rgba(42, 71, 144,1);
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-
-canvas{
-  position:fixed;
-  top:0;
-  left:0;
+body{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-main{
-  width: 100vw;
-  color: white;
-  z-index: 99;
-  position: absolute;
-  width: 100%;
-  margin: 0px auto;
-  padding: 120px 0px;
-  font-family: Arial, Helvetica, sans-serif;
-
-  display: grid;
-  grid-template-columns: repeat(15,1fr);
+h1{
+    text-align: center;
+    font-size: 5rem;
+    font-family: 'Anton', sans-serif;
+    text-shadow: 3px 3px red,-3px -3px aqua;
 }
 
-header{
-  grid-column: 4/span 9;
-  background-color: var(--dark-bg);
-  
-  text-align: center;
-  padding: 2rem;
-  margin-top:100px;
-  margin-bottom:800px;
+.container{
+    background-color: darkgray;
+    width: 100%;
+    flex:90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-header h1{
-  font-family: 'Otomanopee One',sans-serif;
+.files-list{
+    background-color: darkgray;
+    width: 80%;
+    padding: 10vh;
+    display: grid;
+    grid-template-columns: repeat(3,33.3%);
 }
 
-section{
-  grid-column:2/8;
-  padding: 2rem;
+.file{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-section h2{
-  font-family: 'Otomanopee One',sans-serif;
-  text-align: center;
+.file a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    padding: 10px;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 3px 3px red, -3px -3px aqua;
+    transition: 0.5s;
 }
 
-#earth{
-  background-color: var(--medium-bg);
-  /* margin-bottom: -20px; */
+.file a:hover{
+    /* background-color: red; */
+    box-shadow:  3px 3px aqua, -3px -3px red;
+}
+
+.file .preview{
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
+}
+
+footer{
+    flex: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+@media screen and (max-width:480px) {
+    .container{
+        flex:150vh;
+    }
+
+    .files-list{
+        width: 100%;
+        padding: 0;
+        grid-template-columns: 100vw;
+        grid-template-rows: repeat(3, 30vh);
+        gap: 5vh;
+    }
+
+    .file .preview{
+        width: 25vh;
+        height: 25vh;
+    }
+
+    .file a{
+        padding: 5px;
+        font-size: 1.3rem;
+    }
 }
